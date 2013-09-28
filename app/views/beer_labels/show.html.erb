@@ -29,3 +29,29 @@
   <strong>Tag</strong>
   <%= @beer_label.tag %>
 </p>
+
+<% if false %>
+<%= simple_form_for @beer_label do |m| %>
+  <%= m.simple_fields_for :comments do |c| %>
+    <%= c.input :user_comment, label: '' %>
+    <%= c.submit %>
+  <% end %>
+<% end %>
+<% end %>
+
+
+<h2>Add a comment:</h2>
+  <%= render "comments/form" %>
+
+
+<% if @beer_label.comments.present? %>
+
+  <h2>Comments</h2>
+  <%= render @beer_label.comments %>
+
+<% end %>
+
+
+
+
+<%= link_to 'Back to Beer Label', beer_labels_path %>

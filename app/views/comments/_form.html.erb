@@ -1,0 +1,4 @@
+<%= simple_form_for([@beer_label, @beer_label.comments.build]) do |f| %>
+  <%= f.input :user_comment, label: '' %>
+  <%= f.submit %>
+<% end %>
