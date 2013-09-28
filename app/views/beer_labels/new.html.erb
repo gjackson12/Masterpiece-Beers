@@ -1,0 +1,8 @@
+<%= simple_form_for @beer_label do |f| %>
+  <%= f.input :beer_name, label: "Beer Name" %>
+  <%= f.input :brewery %>
+  <%= f.input :origin %>
+  <%= f.input :description %>
+  <%= f.input :tag %>
+  <%= f.button :submit, "Add Beer Label" %>
+<%- end -%>
