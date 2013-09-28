@@ -1,6 +1,6 @@
 class BeerLabelsController < ActionController::Base
   def index
-    @beer_label = BeerLabel.all
+    @beer_labels = BeerLabel.all
   end
 
   def new
@@ -18,7 +18,7 @@ class BeerLabelsController < ActionController::Base
   end
 
   def show
-
+    @beer_label = BeerLabel.find(params[:id])
   end
 
   protected

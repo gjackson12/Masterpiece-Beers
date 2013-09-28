@@ -64,3 +64,5 @@ gem 'anjlab-bootstrap-rails', :require => 'bootstrap-rails',
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'carrierwave'
+
+gem 'rmagick'
