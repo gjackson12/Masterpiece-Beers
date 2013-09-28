@@ -1,0 +1,21 @@
+<h1>Beer Labels</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Brewery</th>
+      <th>Origin</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @beer_label.each do |label| %>
+    <tr>
+      <td><%= label.brewery %></td>
+      <td><%= label.origin %></td>
+      <td><%= label.description %></td>
+    </tr>
+    <%- end -%>
+  </tbody>
+</table>
