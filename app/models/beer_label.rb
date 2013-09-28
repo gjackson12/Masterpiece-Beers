@@ -14,4 +14,5 @@ class BeerLabel < ActiveRecord::Base
 
   validates_format_of :origin, with: /\A[a-zA-Z]+\z/
 
+  mount_uploader :image, ImageUploader
 end

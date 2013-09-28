@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Beer Label</strong>
+  <%= image_tag @beer_label.image_url(:thumb).to_s %>
+</p>
+
+<p>
+  <strong>Beer Name</strong>
+  <%= @beer_label.beer_name %>
+</p>
+
+<p>
+  <strong>Brewery</strong>
+  <%= @beer_label.brewery %>
+</p>
+
+<p>
+  <strong>Origin</strong>
+  <%= @beer_label.origin %>
+</p>
+
+<p>
+  <strong>Description</strong>
+  <%= @beer_label.description %>
+</p>
+
+<p>
+  <strong>Tag</strong>
+  <%= @beer_label.tag %>
+</p>
