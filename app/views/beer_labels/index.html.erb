@@ -3,18 +3,22 @@
 <table>
   <thead>
     <tr>
+      <th>Beer Name</th>
       <th>Brewery</th>
       <th>Origin</th>
       <th>Description</th>
+      <th>Tag</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @beer_label.each do |label| %>
+    <% @beer_labels.each do |label| %>
     <tr>
+      <td><%= label.beer_name %></td>
       <td><%= label.brewery %></td>
       <td><%= label.origin %></td>
       <td><%= label.description %></td>
+      <td><%= label.tag %></td>
     </tr>
     <%- end -%>
   </tbody>
