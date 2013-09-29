@@ -1,4 +1,4 @@
-class BeerLabelsController < ActionController::Base
+class BeerLabelsController < ApplicationController
   def index
     @beer_labels = BeerLabel.all
   end
@@ -19,6 +19,13 @@ class BeerLabelsController < ActionController::Base
 
   def show
     @beer_label = BeerLabel.find(params[:id])
+  end
+
+  def destroy
+    @beer_label = BeerLabel.find(params[:id])
+    @beer_label.destroy
+
+    redirect_to beer_labels_path
   end
 
   protected
