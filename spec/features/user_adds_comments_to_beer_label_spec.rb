@@ -19,11 +19,11 @@ feature 'Authenticated beer-label lover adds comments to beer label' , %Q{
     fill_in 'Tag', with: 'Summer Ale'
     click_on 'Add Beer Label'
 
-    fill_in 'Comments', with: 'Greatest beer label EVAR!'
+    fill_in '', with: 'Greatest beer label EVAR!'
 
-    click_on 'Add Comment'
+    click_on 'Create Comment'
     expect(page).to have_content('Comment successfully added.')
-    expect(Comment.count).to eql(Comment.count + 1)
+    expect(Comment.count).to eql(prev_count + 1)
   end
 
 end

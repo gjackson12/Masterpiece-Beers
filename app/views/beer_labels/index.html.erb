@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Beer Label</th>
       <th>Beer Name</th>
       <th>Brewery</th>
       <th>Origin</th>
@@ -20,10 +21,11 @@
       <td><%= label.origin %></td>
       <td><%= label.description %></td>
       <td><%= label.tag %></td>
-      <td><%= link_to 'Destroy', beer_label_path(label), method: :delete, data: {confirm: 'Are you sure?'} %></td>
+      <td><%= link_to 'Remove', beer_label_path(label), method: :delete, data: {confirm: 'Are you sure?'} %></td>
     </tr>
 
     <%- end -%>
   </tbody>
 </table>
 
+<%= link_to 'Upload New Beer Label', new_beer_label_path %>
