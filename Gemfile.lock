@@ -48,6 +48,7 @@ GEM
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
       json (>= 1.7)
+    certified (0.1.1)
     coderay (1.0.9)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
@@ -202,6 +203,7 @@ DEPENDENCIES
   anjlab-bootstrap-rails!
   capybara
   carrierwave
+  certified
   coffee-rails (~> 4.0.0)
   devise
   factory_girl

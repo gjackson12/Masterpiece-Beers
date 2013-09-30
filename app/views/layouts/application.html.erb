@@ -44,10 +44,7 @@
     </div><!-- /.navbar-collapse -->
   </nav>
 
-  <div>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-  </div>
+
 
 <% flash.each do |name, msg| -%>
   <%= content_tag :div, msg, class: name %>
