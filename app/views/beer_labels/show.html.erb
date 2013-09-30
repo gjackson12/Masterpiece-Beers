@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Beer Label</strong>
   <%= image_tag @beer_label.image_url(:thumb).to_s %>
@@ -29,3 +27,14 @@
   <strong>Tag</strong>
   <%= @beer_label.tag %>
 </p>
+
+<h2>Add a comment:</h2>
+  <%= render "comments/form" %>
+
+<% if @beer_label.comments.present? %>
+  <h2>Comments</h2>
+  <%= render @beer_label.comments %>
+<% end %>
+
+
+<%= link_to 'Back to Beer Label', beer_labels_path %>
