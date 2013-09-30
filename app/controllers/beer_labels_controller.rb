@@ -1,4 +1,6 @@
 class BeerLabelsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :destroy]
+  
   def index
     @beer_labels = BeerLabel.all
   end
@@ -9,6 +11,7 @@ class BeerLabelsController < ApplicationController
 
   def create
     @beer_label = BeerLabel.new(beer_label_params)
+    @beer_label.user = current_user
     if @beer_label.save
       redirect_to @beer_label
       flash[:notice] = "Beer label successfully added"
@@ -30,6 +33,6 @@ class BeerLabelsController < ApplicationController
 
   protected
   def beer_label_params
-    params.require(:beer_label).permit(:beer_name, :brewery, :origin, :description, :tag, :image)
+    params.require(:beer_label).permit(:beer_name, :brewery, :origin, :description, :tag, :image, :comment)
   end
 end
