@@ -31,10 +31,8 @@
 <h2>Add a comment:</h2>
   <%= render "comments/form" %>
 
-<% if @beer_label.comments.present? %>
   <h2>Comments</h2>
   <%= render @beer_label.comments %>
-<% end %>
 
 
 <%= link_to 'Back to Beer Label', beer_labels_path %>
