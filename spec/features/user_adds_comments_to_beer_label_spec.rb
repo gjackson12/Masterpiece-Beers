@@ -9,14 +9,13 @@ feature 'Authenticated beer-label lover adds comments to beer label' , %Q{
   scenario 'logged in' do
 
     prev_count = Comment.count
-
-    # current_label = FactoryGirl.create(:beer_label)
     visit new_beer_label_path
-    fill_in 'Beer Name', with: 'Sam Adams Summer Ale'
-    fill_in 'Brewery', with: 'Sam Adams'
-    fill_in 'Origin', with: 'USA'
-    fill_in 'Description', with: 'Delicious'
-    fill_in 'Tag', with: 'Summer Ale'
+    current_label = FactoryGirl.create(:beer_label)
+    # fill_in 'Beer Name', with: 'Sam Adams Summer Ale'
+    # fill_in 'Brewery', with: 'Sam Adams'
+    # fill_in 'Origin', with: 'USA'
+    # fill_in 'Description', with: 'Delicious'
+    # fill_in 'Tag', with: 'Summer Ale'
     click_on 'Add Beer Label'
 
     fill_in '', with: 'Greatest beer label EVAR!'
