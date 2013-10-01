@@ -16,19 +16,29 @@ feature 'Authenticated beer-label lover uploads label', %Q{
 
   scenario 'with valid info can upload image' do
     prev_count = BeerLabel.count
+    user = FactoryGirl.create(:user)
+    visit new_user_session_path
+    fill_in "Email", with: user.email 
+    fill_in "Password", with: user.password
+    click_button 'Sign in'
     visit new_beer_label_path
     fill_in 'Beer Name', with: 'Sam Adams Summer Ale'
     fill_in 'Brewery', with: 'Sam Adams'
     fill_in 'Origin', with: 'USA'
     fill_in 'Description', with: 'Delicious'
     fill_in 'Tag', with: 'Summer Ale'
-    click_on 'Add Beer Label'
+    click_button 'Add Beer Label'
     expect(page).to have_content("Beer Name")
     expect(BeerLabel.count).to eql(prev_count + 1)
   end
 
   scenario 'with invalid info, cannot upload image' do
     prev_count = BeerLabel.count
+    user = FactoryGirl.create(:user)
+    visit new_user_session_path
+    fill_in "Email", with: user.email 
+    fill_in "Password", with: user.password
+    click_button 'Sign in'
     visit new_beer_label_path
     click_on 'Add Beer Label'
     expect(BeerLabel.count).to eql(prev_count)
