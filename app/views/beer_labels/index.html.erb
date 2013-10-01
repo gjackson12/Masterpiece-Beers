@@ -1,31 +1,14 @@
 <h1>Beer Labels</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Beer Label</th>
-      <th>Beer Name</th>
-      <th>Brewery</th>
-      <th>Origin</th>
-      <th>Description</th>
-      <th>Tag</th>
-    </tr>
-  </thead>
+<div class="row">
 
-  <tbody>
-    <% @beer_labels.each do |label| %>
-    <tr>
-      <td><%= image_tag label.image_url(:index_thumb).to_s if label.image_url.present? %></td>
-      <td><%= label.beer_name %></td>
-      <td><%= label.brewery %></td>
-      <td><%= label.origin %></td>
-      <td><%= label.description %></td>
-      <td><%= label.tag %></td>
-      <td><%= link_to 'Remove', beer_label_path(label), method: :delete, data: {confirm: 'Are you sure?'} %></td>
-    </tr>
+      <% @beer_labels.each do |label| %>
+        <div class="beer_label">
+          <%= link_to image_tag(label.image_url(:index_thumb)), beer_label_path(label) %>
+          <%= link_to 'Remove', beer_label_path(label), method: :delete %></li>
+        </div>
+      <%- end -%>
 
-    <%- end -%>
-  </tbody>
-</table>
+</div>
 
-<%= link_to 'Upload New Beer Label', new_beer_label_path %>
+<%= link_to 'Upload New Beer Label', new_beer_label_path, class: "btn btn-primary btn-lg" %>

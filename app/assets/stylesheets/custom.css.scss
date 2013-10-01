@@ -3,6 +3,21 @@
 }
 
 .thumbnail {
-  height: 200px;
-  width: 200px;
+  height: 171px;
+  width: 180;
+}
+
+.beer-label-thumbnails {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+
+li {
+  display: inline-block;
+}
+
+.beer_label {
+  display: inline-block;
 }
