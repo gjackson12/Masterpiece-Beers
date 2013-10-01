@@ -27,15 +27,17 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
          <% if user_signed_in? %>
-         Logged in as <strong><%= current_user.email %></strong>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.email%><b class="caret"></b></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><strong><%= current_user.email%></strong><b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><%= link_to "Edit account", edit_user_registration_path %></li>
             <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
           </ul>
-          <li><%= image_tag avatar_url(current_user.uid) %></li>
-        </li>
+          <% if current_user.uid.nil? %>
+          <li><%= image_tag gravatar_url(current_user) %></li> 
+          <% else %>
+          <li><%= image_tag fb_avatar_url(current_user.uid) %></li> 
+           <% end %>
         <% else %>
           <li><%= link_to 'Sign up', new_user_registration_path %></li>
           <li><%= link_to 'Sign in', new_user_session_path %></li>
