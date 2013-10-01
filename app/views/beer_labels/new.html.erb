@@ -14,6 +14,9 @@
 
 <script>
   function handleFileSelect(evt) {
+
+    $('#image_preview img').remove(); // Removes image preview if one already exists
+
     var files = evt.target.files; // FileList object
 
     // Loop through the FileList and render image files as thumbnails.
