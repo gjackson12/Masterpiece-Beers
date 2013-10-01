@@ -3,9 +3,12 @@
 <div class="row">
   <div class="col-sm-6 col-md-3">
       <% @beer_labels.each do |label| %>
-        <%= link_to image_tag(label.image_url(:index_thumb)), beer_label_path(label) %>
+
+        <%= link_to image_tag(label.image_url(:index_thumb)), beer_label_path(label), class: "img-rounded" %>
+        <%= link_to 'Remove', beer_label_path(label), method: :delete %></li>
+
       <%- end -%>
   </div>
 </div>
 
-<%= link_to 'Upload New Beer Label', new_beer_label_path %>
+<%= link_to 'Upload New Beer Label', new_beer_label_path, class: "btn btn-primary btn-lg" %>
