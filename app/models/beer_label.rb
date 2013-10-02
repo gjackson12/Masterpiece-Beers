@@ -9,10 +9,9 @@ class BeerLabel < ActiveRecord::Base
   belongs_to :user,
     inverse_of: :beer_labels
   has_many :votes,
-    as: :votable,
-    inverse_of: :beer_label
+    as: :voteable
 
-  validates_presence_of :beer_name
+  validates_presence_of :beer_namev
   validates_presence_of :brewery
   validates_presence_of :origin
 
