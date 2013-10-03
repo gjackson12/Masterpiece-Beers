@@ -18,7 +18,7 @@ feature 'Authenticated beer-label lover uploads label', %Q{
     prev_count = BeerLabel.count
     user = FactoryGirl.create(:user)
     visit new_user_session_path
-    fill_in "Email", with: user.email 
+    fill_in "Email", with: user.email
     fill_in "Password", with: user.password
     click_button 'Sign in'
     visit new_beer_label_path
@@ -27,8 +27,13 @@ feature 'Authenticated beer-label lover uploads label', %Q{
     fill_in 'Origin', with: 'USA'
     fill_in 'Description', with: 'Delicious'
     fill_in 'Tag', with: 'Summer Ale'
+
     click_button 'Add Beer Label'
     expect(page).to have_content("Beer Name")
+
+    visit new_beer_label_path
+    expect(page).to have_selector('img')
+
     expect(BeerLabel.count).to eql(prev_count + 1)
   end
 
@@ -36,7 +41,7 @@ feature 'Authenticated beer-label lover uploads label', %Q{
     prev_count = BeerLabel.count
     user = FactoryGirl.create(:user)
     visit new_user_session_path
-    fill_in "Email", with: user.email 
+    fill_in "Email", with: user.email
     fill_in "Password", with: user.password
     click_button 'Sign in'
     visit new_beer_label_path
