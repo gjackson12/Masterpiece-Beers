@@ -11,7 +11,7 @@ class BeerLabel < ActiveRecord::Base
   has_many :votes,
     as: :voteable
 
-  validates_presence_of :beer_namev
+  validates_presence_of :beer_name
   validates_presence_of :brewery
   validates_presence_of :origin
 
