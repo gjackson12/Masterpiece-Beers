@@ -7,22 +7,18 @@ feature 'Authenticated beer-label lover adds comments to beer label' , %Q{
   } do
 
   scenario 'logged in' do
+    user = FactoryGirl.create(:user)
+    current_label = FactoryGirl.create(:beer_label, :with_image)
+    sign_in_as user
+    expect(current_label).to have(0).comments
 
-    prev_count = Comment.count
-    visit new_beer_label_path
-    current_label = FactoryGirl.create(:beer_label)
-    # fill_in 'Beer Name', with: 'Sam Adams Summer Ale'
-    # fill_in 'Brewery', with: 'Sam Adams'
-    # fill_in 'Origin', with: 'USA'
-    # fill_in 'Description', with: 'Delicious'
-    # fill_in 'Tag', with: 'Summer Ale'
-    click_on 'Add Beer Label'
+    visit beer_label_path(current_label)
 
-    fill_in '', with: 'Greatest beer label EVAR!'
-
+    fill_in "comment[user_comment]", with: 'Greatest beer label EVAR!'
     click_on 'Create Comment'
+
     expect(page).to have_content('Comment successfully added.')
-    expect(Comment.count).to eql(prev_count + 1)
+    expect(current_label.reload).to have(1).comments
   end
 
 end

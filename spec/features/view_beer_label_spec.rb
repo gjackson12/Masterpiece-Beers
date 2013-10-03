@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'anyone can view beer label', %Q{
   As a visitor
   I can click on a label and enlarge the image
-  So that I can admire its magnificence 
+  So that I can admire its magnificence
   } do
   #
   # Acceptance Criteria:
@@ -14,5 +14,5 @@ feature 'anyone can view beer label', %Q{
   # * Visitor may not up/down vote any comments
   # * Visitor may see beer label images
 
-  scenario 'visitor sees beer label images' 
+
 end
