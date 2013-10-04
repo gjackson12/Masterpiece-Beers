@@ -13,6 +13,6 @@ class Vote < ActiveRecord::Base
   def self.score(voteable_type)
     @total_votes = where(voteable_id: voteable_type.id, voteable_type: voteable_type.class ).pluck(:like)
     @score =  @total_votes.inject { |total,vote| total + vote }
-    @score == nil ? 0 : @score
+    @score = nil ? 0 : @score
   end
 end
