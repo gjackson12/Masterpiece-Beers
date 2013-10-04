@@ -8,10 +8,10 @@ describe Vote do
   it { should validate_presence_of :voteable_type }
   it { should validate_presence_of :user_id }
 
-  # it "should return the number of likes for a beer_label" do
-  #   beer_label = FactoryGirl.create(:beer_label)
-  #   vote = FactoryGirl.create(:vote, like: 1, voteable_id: beer_label.id, voteable_type: 'beer_label')
-  #   expect(Vote.score(beer_label)).to eql(1)
-  # end
+  it "should return the number of likes for a beer_label" do
+    beer_label = FactoryGirl.create(:beer_label)
+    vote = FactoryGirl.create(:vote, voteable_id: beer_label.id)
+    expect(Vote.score(beer_label)).to eql(1)
+  end
   
 end
