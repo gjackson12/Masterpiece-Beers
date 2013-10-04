@@ -17,7 +17,7 @@ feature 'Beer-label-lover can up/down vote comment', %Q{
     user = FactoryGirl.create(:user)
     beer_label = FactoryGirl.create(:beer_label, user_id: user.id)
     prev_vote_count = Vote.count
-    prev_like_count = bl_like_count(beer_label.id)
+    prev_score_count = Vote.score(beer_label)
 
     sign_in_as user
 
@@ -25,7 +25,37 @@ feature 'Beer-label-lover can up/down vote comment', %Q{
     click_on "Like"
 
     expect(Vote.count).to eql(prev_vote_count + 1)
-    expect(bl_like_count(beer_label.id)).to eql (prev_like_count + 1)
+    expect(Vote.score(beer_label)).to eql (prev_score_count + 1)
+  end
+
+  scenario 'attempts to upvote a beer label again' do
+    user = FactoryGirl.create(:user)
+    beer_label = FactoryGirl.create(:beer_label, user_id: user.id)
+    sign_in_as user
+    visit beer_label_path(beer_label)
+    click_on "Like"
+    prev_vote_count = Vote.count
+    prev_score_count = Vote.score(beer_label)
+
+    click_on "Like"
+
+    expect(Vote.count).to eql(prev_vote_count)
+    expect(Vote.score(beer_label)).to eql (prev_score_count)
+  end
+
+   scenario 'up-votes a beer label' do
+    user = FactoryGirl.create(:user)
+    beer_label = FactoryGirl.create(:beer_label, user_id: user.id)
+    prev_vote_count = Vote.count
+    prev_score_count = Vote.score(beer_label)
+
+    sign_in_as user
+
+    visit beer_label_path(beer_label)
+    click_on "Like"
+
+    expect(Vote.count).to eql(prev_vote_count + 1)
+    expect(Vote.score(beer_label)).to eql (prev_score_count + 1)
   end
 
 end

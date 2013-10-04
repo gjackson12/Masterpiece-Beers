@@ -19,10 +19,10 @@ FactoryGirl.define do
   end
 
   factory :vote do
-    like "true"
+    like 1
     voteable_id 1
     voteable_type "beer_label"
-    user_id 1
+    user
   end
 
 end
