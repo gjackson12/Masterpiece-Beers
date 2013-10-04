@@ -1,7 +1,11 @@
 <p>
-  <strong>Beer Label</strong>
+  <strong>Beer Label <%= Vote.score(@beer_label) %></strong>
   <%= image_tag @beer_label.image_url(:thumb).to_s %>
 </p>
+
+ <%= link_to "Like", upvote_beer_label_path %>
+
+ <%= link_to "Dislike", downvote_beer_label_path %>
 
 <p>
   <strong>Beer Name</strong>

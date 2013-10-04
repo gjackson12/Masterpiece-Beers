@@ -14,6 +14,7 @@ class BeerLabel < ActiveRecord::Base
   validates_presence_of :beer_name
   validates_presence_of :brewery
   validates_presence_of :origin
+  validates_presence_of :user_id
 
   validates_format_of :origin, with: /\A[a-zA-Z]+\z/
 

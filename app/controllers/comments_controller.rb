@@ -15,8 +15,34 @@ class CommentsController < ApplicationController
     redirect_to beer_label_path(@beer_label)
   end
 
+  def upvote
+    vote(1)
+  end
+
+  def downvote
+    vote(-1)
+  end
+
   private
   def comment_params
     params.require(:comment).permit(:user_comment)
+  end
+
+  def vote(value)
+    @beer_label = BeerLabel.find(params[:beer_label_id])
+    @comment = @beer_label.comments.
+    check_vote
+    @comment_vote.like = value
+    @comment_vote.user = current_user
+    @comment_vote.save
+    redirect_to @beer_label
+  end
+
+  def check_vote
+    if @comment.votes.where(user_id: current_user.id).any?
+      @comment_vote = @comment.votes.where(user_id: current_user.id).first
+    else
+      @comment_vote = @comment.votes.new
+    end
   end
 end

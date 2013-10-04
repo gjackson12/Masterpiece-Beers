@@ -6,13 +6,14 @@ MasterpieceBeersDeux::Application.routes.draw do
       get 'upvote'
       get 'downvote'
     end
-    resources :comments do
-      member do
+
+  resources :comments do
+    member do
       get 'upvote'
       get 'downvote'
-      end
     end
   end
+end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

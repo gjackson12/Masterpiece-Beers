@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20131004142859) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "image"
-    t.integer  "user_id"
+    t.integer  "user_id",     null: false
     t.string   "state"
   end
 
@@ -61,9 +61,9 @@ ActiveRecord::Schema.define(version: 20131004142859) do
 
   create_table "votes", force: true do |t|
     t.integer  "like"
-    t.integer  "voteable_id"
-    t.string   "voteable_type"
-    t.integer  "user_id"
+    t.integer  "voteable_id",   null: false
+    t.string   "voteable_type", null: false
+    t.integer  "user_id",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
