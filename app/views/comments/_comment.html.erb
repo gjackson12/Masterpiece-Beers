@@ -3,8 +3,10 @@
 </p>
 
 <p>
-  <%= link_to 'Delete Comment', [comment.beer_label, comment],
+  <% if comment.user_comment? %>
+    <%= link_to 'Delete Comment', [comment.beer_label, comment],
               method: :delete,
               data: { confirm: 'Are you sure?' } %>
+  <% end %>
 </p>
 
