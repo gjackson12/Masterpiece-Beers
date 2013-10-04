@@ -18,4 +18,22 @@ class BeerLabel < ActiveRecord::Base
   validates_format_of :origin, with: /\A[a-zA-Z]+\z/
 
   mount_uploader :image, ImageUploader
+
+  state_machine :state, :initial => :pending do
+    
+    event :reject do
+      transition all => :rejected
+    end
+
+    event :approve do
+      transition all => :approved
+    end
+  
+    state :pending
+    state :approved
+    state :rejected
+  end
+
+  
+
 end
