@@ -1,7 +1,7 @@
 class CreateVotes < ActiveRecord::Migration
   def change
     create_table :votes do |t|
-      t.boolean :like
+      t.integer :like
       t.integer :voteable_id
       t.string :voteable_type
       t.integer :user_id

@@ -22,18 +22,12 @@ class BeerLabel < ActiveRecord::Base
   state_machine :state, :initial => :pending do
     
     event :reject do
-      transition all => :rejected
+      transition :pending => :rejected
     end
 
     event :approve do
-      transition all => :approved
+      transition :pending => :approved
     end
-  
-    state :pending
-    state :approved
-    state :rejected
   end
-
-  
 
 end

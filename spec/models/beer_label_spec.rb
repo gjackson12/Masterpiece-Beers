@@ -12,16 +12,17 @@ describe BeerLabel do
     beer_label.pending?.should be_true
   end
 
-  it 'is accepted' do
+  it 'with 5 likes is approved', focus: true do
+    user = FactoryGirl.create(:user)
     beer_label = FactoryGirl.create(:beer_label)
-    beer_label.approve
-    beer_label.approved?.should be_true
-    beer_label.rejected?.should_not be_true
+    beer_label.like = 4
+    sign_in_as user
+    visit beer_label_path(beer_label)
+    expect(beer_label.state).to eql('pending')
+    click_on 'Like'
+    expect(beer_label.state).to eql('approved')
+    
   end
 
-  it 'is rejected' do
-    beer_label = FactoryGirl.create(:beer_label)
-    beer_label.reject
-    beer_label.rejected?.should be_true
-  end
+
 end
