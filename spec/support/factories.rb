@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :user do
-    email 'john.smith@example.com'
+    sequence(:email) { |n| "kristina#{n}@durr.com"}
     password 'bondra12'
     password_confirmation 'bondra12'
   end
@@ -21,7 +21,7 @@ FactoryGirl.define do
   factory :vote do
     like 1
     voteable_id 1
-    voteable_type "beer_label"
+    voteable_type "BeerLabel"
     user
   end
 

@@ -51,7 +51,16 @@ class BeerLabelsController < ApplicationController
     @beer_label_vote.like = value
     @beer_label_vote.user = current_user
     @beer_label_vote.save
+    check_beer_label_score
     redirect_to @beer_label
+  end
+
+  def check_beer_label_score
+    if Vote.score(@beer_label) == 5
+      @beer_label.approve
+    elsif Vote.score(@beer_label) == -5
+      @beer_label.reject
+    end
   end
 
   def check_vote
