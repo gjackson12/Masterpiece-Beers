@@ -72,3 +72,5 @@ gem 'rmagick'
 gem 'certified'
 
 gem 'state_machine'
+
+gem 'stringex'

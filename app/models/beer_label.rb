@@ -31,4 +31,6 @@ class BeerLabel < ActiveRecord::Base
     end
   end
 
+  acts_as_url :beer_name
+
 end
