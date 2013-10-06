@@ -71,4 +71,8 @@ gem 'rmagick'
 
 gem 'certified'
 
+gem 'fog'
+
+gem 'ransack'
+
 gem 'state_machine'
