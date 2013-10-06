@@ -25,7 +25,8 @@ feature 'Beer-label-lover can up/down vote comment', %Q{
     click_on "Like"
 
     expect(Vote.count).to eql(prev_vote_count + 1)
-    expect(Vote.score(beer_label)).to eql (prev_score_count + 1)
+
+    expect(Vote.score(beer_label)).to eql(prev_score_count + 1)
   end
 
   scenario 'attempts to upvote a beer label again' do
@@ -40,7 +41,7 @@ feature 'Beer-label-lover can up/down vote comment', %Q{
     click_on "Like"
 
     expect(Vote.count).to eql(prev_vote_count)
-    expect(Vote.score(beer_label)).to eql (prev_score_count)
+    expect(Vote.score(beer_label)).to eql(prev_score_count)
   end
 
    scenario 'up-votes a beer label' do
@@ -55,7 +56,7 @@ feature 'Beer-label-lover can up/down vote comment', %Q{
     click_on "Like"
 
     expect(Vote.count).to eql(prev_vote_count + 1)
-    expect(Vote.score(beer_label)).to eql (prev_score_count + 1)
+    expect(Vote.score(beer_label)).to eql(prev_score_count + 1)
   end
 
 end
