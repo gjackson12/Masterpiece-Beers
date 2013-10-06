@@ -1,5 +1,11 @@
 <h1>Beer Labels</h1>
 
+<%= search_form_for @q do |f| %>
+  <%= f.label :beer_name_cont %>
+  <%= f.text_field :beer_name_cont %>
+  <%= f.submit %>
+<% end %>
+
 <div class="row">
 
       <% @beer_labels.each do |label| %>

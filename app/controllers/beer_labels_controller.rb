@@ -1,8 +1,9 @@
 class BeerLabelsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :destroy]
-  
+
   def index
-    @beer_labels = BeerLabel.all
+    @q = BeerLabel.search(params[:q])
+    @beer_labels = @q.result(distinct: true)
   end
 
   def new
