@@ -1,6 +1,12 @@
-.sign-up-options {
-  list-style:none ;
+:root, body { 
+  background: url(image_path('background.jpg')) repeat;
 }
+
+abbr, accronym{ border-bottom: 0px !important; } 
+
+// .sign-up-options {
+//   list-style:none ;
+// }
 
 .thumbnail {
   height: 171px;
@@ -14,10 +20,56 @@
   display: inline;
 }
 
-li {
-  display: inline-block;
-}
+// li {
+//   display: inline-block;
+// }
 
 .beer_label {
   display: inline-block;
+}
+
+.navbar {
+    margin: 0 auto;
+    width: 67.500em;
+    background-color: #fff;
+    border: 0;
+    top-margin:10px;
+}
+
+.sign-up-btn {
+  margin-bottom: 0.5em;
+}
+
+.beer_label_beer_name {
+  top-margin: 4px;
+}
+
+h1,h2,h3,h4 {
+    font-family: 'Lobster', Georgia, Times, serif;
+    line-height: 100px;
+}
+ 
+body {
+    font-family: 'Cabin', Helvetica, Arial, sans-serif;
+    font-size: 15px;
+    line-height: 25px;
+}
+
+.cancel-account-title {
+  line-height: 0;
+  padding-bottom: 1.1em;
+  padding-top: 1em;
+}
+
+.top-row {
+  margin-top: 2em;
+}
+
+.beer_label {
+  margin-bottom: 0.4em;
+  margin-right: 0.4em;
+}
+
+.label-rows{
+  margin-top: 1.0em;
 }
