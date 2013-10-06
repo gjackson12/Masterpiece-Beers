@@ -21,12 +21,12 @@ class BeerLabelsController < ApplicationController
   end
 
   def show
-    @beer_label = BeerLabel.find_by_url!(params[:id])
+    @beer_label = BeerLabel.find_by_url(params[:id])
     @vote = Vote.new
   end
 
   def destroy
-    @beer_label = BeerLabel.find_by_url!(params[:id])
+    @beer_label = BeerLabel.find_by_url(params[:id])
     @beer_label.destroy
 
     redirect_to beer_labels_path
@@ -46,7 +46,7 @@ class BeerLabelsController < ApplicationController
   end
 
   def vote(value)
-    @beer_label = BeerLabel.find_by_url!(params[:id])
+    @beer_label = BeerLabel.find_by_url(params[:id])
     check_vote
     @beer_label_vote.like = value
     @beer_label_vote.user = current_user

@@ -16,7 +16,7 @@ class BeerLabel < ActiveRecord::Base
   validates_presence_of :origin
   validates_presence_of :user_id
 
-  validates_format_of :origin, with: /\A[a-zA-Z]+\z/
+  # validates_format_of :origin, with: /\A[a-zA-Z]+\z/
 
   mount_uploader :image, ImageUploader
 
@@ -32,5 +32,9 @@ class BeerLabel < ActiveRecord::Base
   end
 
   acts_as_url :beer_name
+
+  def to_param
+    url
+  end
 
 end

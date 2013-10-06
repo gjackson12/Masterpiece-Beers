@@ -55,6 +55,7 @@ group :development, :test do
 
   gem 'launchy'
   gem 'pry-rails'
+  gem 'quiet_assets'
 end
 
 gem 'devise'

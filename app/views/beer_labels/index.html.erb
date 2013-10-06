@@ -1,14 +1,16 @@
-<h1>Beer Labels</h1>
-
-<div class="row">
-
-      <% @beer_labels.each do |label| %>
-        <div class="beer_label">
-          <%= link_to image_tag(label.image_url(:index_thumb)), beer_label_path(label) %>
-         <!--  <%= link_to 'Remove', beer_label_path(label), method: :delete %> -->
-        </div>
-      <%- end -%>
-
+<div class="row top-row">
+  <div class="col-md-3 pull-right">
+    <% if user_signed_in? %>
+     <%= link_to 'Upload New Beer Label', new_beer_label_path, class: "btn btn-primary btn-lg" %>
+    <% end %>
+  </div>
 </div>
-
-<%= link_to 'Upload New Beer Label', new_beer_label_path, class: "btn btn-primary btn-lg" %>
+<div class="row label-rows">
+  <div class="col-md-10 col-md-offset-1">
+    <% @beer_labels.each do |label| %>
+    <div class="beer_label">
+      <%= link_to image_tag(label.image_url(:index_thumb)), beer_label_path(label), class: "labels-frontpage", input_html: { rel: "shadowbox" } %>
+    </div>
+    <%- end -%>
+  </div>
+</div>

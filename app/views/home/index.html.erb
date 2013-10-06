@@ -1,0 +1,7 @@
+<div class="row">
+  <% @beer_labels.each do |label| %>
+    <div class="beer_label">
+      <%= link_to image_tag(label.image_url(:index_thumb)), beer_label_path(label) %>
+    </div>
+  <%- end -%>
+</div>

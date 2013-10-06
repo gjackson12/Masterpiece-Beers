@@ -3,6 +3,8 @@
 <head>
   <title>Masterpiece Beers</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <link href="http://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=Cabin" rel="stylesheet" type="text/css">
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -22,8 +24,9 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link</a></li>
-        <li><a href="#">Link</a></li>
+        <li><a href="#">Top Beers</a></li>
+        <li><a href="#">Latest Beers</a></li>
+        <li><a href="#">About</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
          <% if user_signed_in? %>
@@ -47,13 +50,10 @@
     </div><!-- /.navbar-collapse -->
   </nav>
 
-<% flash.each do |name, msg| -%>
-  <%= content_tag :div, msg, class: name %>
-<% end -%>
-
 <div class="container">
 
 <%= yield %>
+<%= yield :extra_footer %>
 
 </div>
 </body>
