@@ -75,3 +75,7 @@ gem 'certified'
 gem 'state_machine'
 
 gem 'stringex'
+
+gem 'fog'
+
+gem 'ransack'
