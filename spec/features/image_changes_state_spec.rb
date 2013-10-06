@@ -16,10 +16,10 @@ describe 'Beer Label image' do
     visit beer_label_path(beer_label)
     expect(beer_label.state).to eql('pending')
     click_on 'Like'
-    expect(beer_label.state).to eql('approved')
+    expect(beer_label.reload.state).to eql('approved')
   end
 
-  it 'with 5 dislikes is rejected', focus: true do
+  it 'with 5 dislikes is rejected' do
     user = FactoryGirl.create(:user)
     beer_label = FactoryGirl.create(:beer_label)
     FactoryGirl.create_list(:vote, 4, like: -1, voteable_id: beer_label.id)
