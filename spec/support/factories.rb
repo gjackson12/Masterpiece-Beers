@@ -6,15 +6,22 @@ FactoryGirl.define do
   end
 
   factory :beer_label do
-    beer_name "Harpoon IPA"
-    brewery "Harpoon"
+    beer_name "Golden Monkey"
+    brewery "Monkey"
     origin "USA"
     description "Hi"
     tag "IPA"
+  end
+
+  factory :beer_label_test do
+    beer_name "Heineken"
+    brewery "Heineken"
+    origin "Holland"
+  end
 
     trait :with_image do
       image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec', 'support', 'golden-monkey-logo.jpg')) }
     end
-  end
+
 
 end
