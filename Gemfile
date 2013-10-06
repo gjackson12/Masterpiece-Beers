@@ -55,6 +55,7 @@ group :development, :test do
 
   gem 'launchy'
   gem 'pry-rails'
+  gem 'quiet_assets'
 end
 
 gem 'devise'
@@ -71,8 +72,10 @@ gem 'rmagick'
 
 gem 'certified'
 
+gem 'state_machine'
+
+gem 'stringex'
+
 gem 'fog'
 
 gem 'ransack'
-
-gem 'state_machine'
