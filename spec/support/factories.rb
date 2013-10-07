@@ -11,7 +11,7 @@ FactoryGirl.define do
     origin "USA"
     description "Hi"
     tag "IPA"
-    user_id 1
+    user
   end
 
   trait :with_image do

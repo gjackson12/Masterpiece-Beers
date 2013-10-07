@@ -1,0 +1,55 @@
+<div class="row new-beer-form">
+  <div class="col-md-4 col-md-offset-4">
+    <h2>Edit Beer Label</h2>
+    <%= image_tag @beer_label.image_url(:thumb).to_s %>
+    <%= simple_form_for @beer_label, :html => {:multipart => true} do |f| %>
+      <%= f.input :beer_name, label: "Beer Name" %>
+      <%= f.input :brewery %>
+      <%= f.input :origin, collection: Country::COUNTRIES, include_blank: 'Select...', input_html: { class: "chosen-select" } %>
+      <%= f.input :description %>
+      <%= f.input :tag %>
+      <%= f.input :image, input_html: {id: 'image'} %><br/ >
+      <div id="image_preview"></div>
+      <%= f.button :submit, "Update Beer Label", class: "btn-primary btn-lg" %>
+      <div><%= link_to 'Back Home', beer_labels_path %></div>
+    <%- end -%>
+  </div>
+</div>
+
+<% content_for :extra_footer do %>
+  <script>
+    function handleFileSelect(evt) {
+
+      $('#image_preview img').remove(); // Removes image preview if one already exists
+
+      var files = evt.target.files; // FileList object
+
+      // Loop through the FileList and render image files as thumbnails.
+      for (var i = 0, f; f = files[i]; i++) {
+
+        // Only process image files.
+        if (!f.type.match('image.*')) {
+          continue;
+        }
+
+        var reader = new FileReader();
+
+        // Closure to capture the file information.
+        reader.onload = (function(theFile) {
+          return function(e) {
+              $('#image_preview').append('<img src="' + e.target.result + '" class="thumbnail"/>')
+
+          };
+        })(f);
+
+        // Read in the image file as a data URL.
+        reader.readAsDataURL(f);
+      }
+    }
+
+    document.getElementById('image').addEventListener('change', handleFileSelect, false);
+
+
+    $(".chosen-select").chosen()
+  </script>
+<% end %>
