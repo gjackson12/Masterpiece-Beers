@@ -1,24 +1,32 @@
 <div class="row top-row">
-  <div class="col-md-3 pull-right">
+  <div class="col-md-7 col-md-offset-1">
+    <%= search_form_for @q do |f| %>
+      <%= f.label :beer_name_cont %>
+      <%= f.text_field :beer_name_cont %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+  <div class="col-md-4 pull-right">
     <% if user_signed_in? %>
      <%= link_to 'Upload New Beer Label', new_beer_label_path, class: "btn btn-primary btn-lg" %>
     <% end %>
   </div>
-
-<h1>Beer Labels</h1>
-
-<%= search_form_for @q do |f| %>
-  <%= f.label :beer_name_cont %>
-  <%= f.text_field :beer_name_cont %>
-  <%= f.submit %>
-<% end %>
+</div>
 
 <div class="row label-rows">
   <div class="col-md-10 col-md-offset-1">
+  <% if user_signed_in? %>
     <% @beer_labels.each do |label| %>
     <div class="beer_label">
       <%= link_to image_tag(label.image_url(:index_thumb)), beer_label_path(label), class: "labels-frontpage", input_html: { rel: "shadowbox" } %>
     </div>
     <%- end -%>
+  <% else %>
+    <% @beer_labels[0..15].each do |label| %>
+    <div class="beer_label">
+      <%= link_to image_tag(label.image_url(:index_thumb)), beer_label_path(label), class: "labels-frontpage", input_html: { rel: "shadowbox" } %>
+    </div>
+    <%- end -%>
+  <% end %>
   </div>
 </div>
