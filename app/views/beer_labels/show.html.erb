@@ -32,6 +32,10 @@
   <%= @beer_label.tag %>
 </p>
 
+<% if current_user == @beer_label.user %>
+  <%= link_to 'Edit', edit_beer_label_path %>
+<% end %>
+
 <h2>Add a comment:</h2>
   <%= render "comments/form" %>
 

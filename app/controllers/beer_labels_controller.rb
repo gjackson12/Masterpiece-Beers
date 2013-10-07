@@ -26,6 +26,20 @@ class BeerLabelsController < ApplicationController
     @vote = Vote.new
   end
 
+  def edit
+    @beer_label = BeerLabel.find_by_url(params[:id])
+  end
+
+  def update
+    @beer_label = BeerLabel.find_by_url(params[:id])
+
+    if @beer_label.update(beer_label_params)
+      redirect_to beer_label_path(@beer_label)
+    else
+      render action: 'edit'
+    end      
+  end
+
   def destroy
     @beer_label = BeerLabel.find_by_url(params[:id])
     @beer_label.destroy
