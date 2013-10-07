@@ -24,10 +24,6 @@ abbr, accronym{ border-bottom: 0px !important; }
 //   display: inline-block;
 // }
 
-.beer_label {
-  display: inline-block;
-}
-
 .navbar {
     margin: 0 auto;
     width: 67.500em;
@@ -65,6 +61,7 @@ body {
 }
 
 .beer_label {
+  display: inline-block;
   margin-bottom: 0.4em;
   margin-right: 0.4em;
 }
@@ -83,6 +80,34 @@ body {
 }
 
 .vote-count-negative {
-  color: #eee;
+  color: #d43f3a;
 }
 
+.navbar, .navbar-default {
+  background-color: transparent;
+  padding-bottom: 10px;
+ } 
+
+.nav, .navbar-nav {
+  font-size: 18px;
+}
+
+.navbar-brand {
+  font-family: 'Lobster', Georgia, Times, serif;
+  font-size: 30px;
+  padding-left: 0px;
+}
+
+.dis-like-btn {
+  margin-left: -1.25em;
+}
+
+.add-comment-field {
+  margin: 0;
+  height: 80px;
+}
+
+.comments-field {
+  margin: 10px 0 0 0;
+  height: 80px;
+}
