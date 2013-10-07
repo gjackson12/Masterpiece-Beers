@@ -1,12 +1,18 @@
-<p>
-  <%= comment.user_comment %>
-</p>
+<%- if comment.persisted? %>
+  <table class="table">
 
-<p>
-  <% if comment.user_comment? %>
-    <%= link_to 'Delete Comment', [comment.beer_label, comment],
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %>
-  <% end %>
-</p>
+    <tr>
+      "<%= comment.user_comment %>"<br>
+      <small>by <%= comment.user.email %></small><br>
+      <small>on <%= comment.created_at %></small>
+    </tr>
+  </table>
 
+  <p>
+    <% if comment.user_comment? %>
+      <%= link_to 'Delete Comment', [comment.beer_label, comment],
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  </p>
+<%- end -%>
