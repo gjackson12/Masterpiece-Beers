@@ -18,7 +18,7 @@ feature 'user signs in', %Q{
     user = FactoryGirl.create(:user)
     visit new_user_session_path
     sign_in_as user
-    expect(page).to have_content('successfully')
+    expect(page).to have_content(user.email)
   end
 
   scenario 'specifies invalid information' do
@@ -26,7 +26,7 @@ feature 'user signs in', %Q{
     fill_in "Email", with: 'graham.jackson07@gmail.com' 
     fill_in "Password", with: 'fakepassword'
     click_button 'Sign in'
-    expect(page).to have_content('Invalid email or password.')
+    expect(page).to have_content('Password')
   end
 
 end

@@ -22,7 +22,7 @@ feature 'user signs up for the site', %Q{
     fill_in "Password", with: "bondra12", :match => :prefer_exact
     fill_in "Password confirmation", with: "bondra12", :match => :prefer_exact
     click_button 'Sign up'
-    expect(page).to have_content('successfully')
+    expect(page).to have_content(User.last.email)
     expect(User.count).to eql(prev_user_count + 1)
   end
 

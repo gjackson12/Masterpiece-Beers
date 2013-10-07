@@ -17,7 +17,7 @@ feature 'Authenticated beer-label lover adds comments to beer label' , %Q{
     fill_in "comment[user_comment]", with: 'Greatest beer label EVAR!'
     click_on 'Create Comment'
 
-    expect(page).to have_content('Comment successfully added.')
+    expect(page).to have_content(current_label.comments.last)
     expect(current_label.reload).to have(1).comments
   end
 
