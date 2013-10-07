@@ -79,3 +79,5 @@ gem 'stringex'
 gem 'fog'
 
 gem 'ransack'
+
+gem 'kaminari'
