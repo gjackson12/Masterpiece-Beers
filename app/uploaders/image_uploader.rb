@@ -20,7 +20,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
-    process :resize_to_fill => [226, 226]
+    process :resize_to_fill => [500, 500]
   end
 
   version :index_thumb do
