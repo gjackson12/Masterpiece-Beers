@@ -7,5 +7,5 @@ class Comment < ActiveRecord::Base
   has_many :votes, as: :voteable
 
   validates_presence_of :user_comment
-
+  validates_presence_of :user
 end

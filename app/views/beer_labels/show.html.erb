@@ -1,36 +1,39 @@
-<p>
-  <strong>Beer Label <%= Vote.score(@beer_label) %></strong>
-  <%= image_tag @beer_label.image_url(:thumb).to_s %>
-</p>
+<div class="row">
+  <div class="col-md-5 col-md-offset-2">
+    <div>
+    <%= image_tag @beer_label.image_url(:thumb).to_s %>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="facts-section">
+      <dl class="dl-horizontal">
+        <h2><dt><strong>Name:</strong><dt></h2>
+        <dd><%= @beer_label.beer_name %></dd>
+        <h2><dt><strong>Brewery:</strong></dt></h2>
+        <dd><%= @beer_label.brewery %></dd>
+        <h2><dt><strong>Origin:</strong></dt></h2>
+        <dd><%= @beer_label.origin %></dd>
+        <h2><dt><strong>Tags:</strong></dt></h4>
+        <dd><%= @beer_label.tag %></dd>
+      </dl>
+    </div>
+  </div>
+</div>
 
- <%= link_to "Like", upvote_beer_label_path %>
+<div>
+<%= link_to "Like", upvote_beer_label_path, class:'btn btn-success btn-lg' %>
 
- <%= link_to "Dislike", downvote_beer_label_path %>
+ <%= link_to "Dislike", downvote_beer_label_path, class:'btn btn-danger btn-lg' %>
+</div>
 
-<p>
-  <strong>Beer Name</strong>
-  <%= @beer_label.beer_name %>
-</p>
+<h1>Votes:
+  <%= vote_count_display(@beer_label) %>
+</h1>
 
-<p>
-  <strong>Brewery</strong>
-  <%= @beer_label.brewery %>
-</p>
-
-<p>
-  <strong>Origin</strong>
-  <%= @beer_label.origin %>
-</p>
-
-<p>
-  <strong>Description</strong>
-  <%= @beer_label.description %>
-</p>
-
-<p>
-  <strong>Tag</strong>
-  <%= @beer_label.tag %>
-</p>
+<blockquote class="pull-right">
+<h1>"<%= @beer_label.description %>"</h1>
+<small><%= @beer_label.user.email %></small>
+</blockquote>
 
 <h2>Add a comment:</h2>
   <%= render "comments/form" %>

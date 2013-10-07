@@ -1,8 +1,8 @@
-:root, body { 
+:root, body {
   background: url(image_path('background.jpg')) repeat;
 }
 
-abbr, accronym{ border-bottom: 0px !important; } 
+abbr, accronym{ border-bottom: 0px !important; }
 
 // .sign-up-options {
 //   list-style:none ;
@@ -48,7 +48,7 @@ h1,h2,h3,h4 {
     font-family: 'Lobster', Georgia, Times, serif;
     line-height: 100px;
 }
- 
+
 body {
     font-family: 'Cabin', Helvetica, Arial, sans-serif;
     font-size: 15px;
@@ -73,3 +73,17 @@ body {
 .label-rows{
   margin-top: 1.0em;
 }
+
+.facts-section {
+  font-family: 'Cabin', Helvetica, Arial, sans-serif;
+  font-size: 24px;
+}
+
+.vote-count-positive {
+  color: green;
+}
+
+.vote-count-negative {
+  color: #eee;
+}
+
