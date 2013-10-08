@@ -17,5 +17,3 @@
 
 /config/database.yml
 /public/uploads
-.env
-/config/initializers/01_env.rb
