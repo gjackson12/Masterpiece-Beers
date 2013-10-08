@@ -81,3 +81,5 @@ gem 'fog'
 gem 'ransack'
 
 gem 'rails_12factor', group: :production
+
+gem 'kaminari'
