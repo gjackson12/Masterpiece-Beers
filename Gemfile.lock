@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/anjlab/bootstrap-rails.git
-  revision: 583659441aa843e47f8002c562c2911500b2fd3e
+  revision: 24e9ee8edfb0b810fb2ba4f33169773b49c6fb83
   specs:
     anjlab-bootstrap-rails (3.0.0.3)
       railties (>= 3.0)
@@ -57,7 +57,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
-    devise (3.1.0)
+    devise (3.1.1)
       bcrypt-ruby (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
@@ -95,6 +95,9 @@ GEM
     json (1.8.0)
     jwt (0.1.8)
       multi_json (>= 1.5)
+    kaminari (0.14.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     launchy (2.3.0)
       addressable (~> 2.3)
     mail (2.5.4)
@@ -104,7 +107,7 @@ GEM
     mime-types (1.25)
     mini_portile (0.5.1)
     minitest (4.7.5)
-    multi_json (1.8.0)
+    multi_json (1.8.1)
     multipart-post (1.2.0)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
@@ -179,7 +182,7 @@ GEM
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
     ruby-hmac (0.4.0)
-    sass (3.2.11)
+    sass (3.2.12)
     sass-rails (4.0.0)
       railties (>= 4.0.0.beta, < 5.0)
       sass (>= 3.1.10)
@@ -241,6 +244,7 @@ DEPENDENCIES
   fog
   jbuilder (~> 1.2)
   jquery-rails
+  kaminari
   launchy
   omniauth
   omniauth-facebook
