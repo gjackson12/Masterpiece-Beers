@@ -23,11 +23,12 @@
     <h1>Votes:
         <%= vote_count_display(@beer_label) %>
     </h1>
-    <div class='dis-like-btn'>
-      <%= link_to "Like", upvote_beer_label_path, class:'btn btn-success btn-lg' %>
-
-      <%= link_to "Dislike", downvote_beer_label_path, class:'btn btn-danger btn-lg' %>
-    </div>
+    <% if user_signed_in? %>
+      <div class='dis-like-btn'>
+        <%= link_to "Like", upvote_beer_label_path, class:'btn btn-success btn-lg' %>
+        <%= link_to "Dislike", downvote_beer_label_path, class:'btn btn-danger btn-lg' %>
+      </div>
+    <% end %>
   </div>
   <div class="col-md-5">
     <blockquote>
@@ -39,10 +40,12 @@
 
 <div class="row">
   <div class="col-md-8 col-md-offset-2">
-    <h2 class="add-comment-field">Add a comment:</h2>
-    <%= render "comments/form" %>
-    <h2 class="comments-field">Comments</h2>
-    <%= render @beer_label.comments %>
-    <%= link_to 'Back to Beer Labels', beer_labels_path %>
+    <% if user_signed_in? %>
+      <h2 class="add-comment-field">Add a comment:</h2>
+      <%= render "comments/form" %>
+    <% end %>
+      <h2 class="comments-field">Comments</h2>
+      <%= render @beer_label.comments %>
+      <%= link_to 'Back to Beer Labels', beer_labels_path %>
   </div>
 </div>
